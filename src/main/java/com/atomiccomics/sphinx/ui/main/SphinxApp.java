@@ -6,6 +6,7 @@ import com.atomiccomics.sphinx.ui.config.CommonModule;
 import com.atomiccomics.sphinx.ui.config.UiModule;
 import com.atomiccomics.sphinx.ui.survey.StartSurveyEvent;
 import com.atomiccomics.sphinx.ui.survey.SurveyController;
+import com.atomiccomics.survey.engine.SurveyBlackboard;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import com.google.inject.Guice;
@@ -55,7 +56,7 @@ public class SphinxApp extends Application {
 			final Parent root = loader.load(SphinxApp.class
 					.getResourceAsStream("/com/atomiccomics/sphinx/ui/survey/SurveyFrame.fxml"));
 			SurveyController controller = loader.getController();
-			controller.loadSurvey(event.getSurvey());
+			controller.loadSurvey(event.getSurvey(), injector.getInstance(SurveyBlackboard.class));
 			final Scene scene = new Scene(root);
 			
 			Platform.runLater(() -> primaryStage.setScene(scene));

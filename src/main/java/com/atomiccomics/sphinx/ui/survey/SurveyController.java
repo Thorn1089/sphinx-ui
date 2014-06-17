@@ -18,6 +18,7 @@ import com.atomiccomics.survey.common.Instructions;
 import com.atomiccomics.survey.common.StaticSection;
 import com.atomiccomics.survey.core.Question;
 import com.atomiccomics.survey.core.Section;
+import com.atomiccomics.survey.engine.SurveyBlackboard;
 import com.atomiccomics.survey.engine.SurveyDriver;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Provider;
@@ -43,7 +44,7 @@ public class SurveyController {
 		this.worker = worker;
 	}
 	
-	public void loadSurvey(final Path survey) {
+	public void loadSurvey(final Path survey, final SurveyBlackboard blackboard) {
 		//TODO Actually parse...for now, let's fake a survey with sample instructions
 		final Instructions demoInstructions = new Instructions("I-01", (bb) -> true, "Please read these carefully");
 		final Instructions second = new Instructions("I-02", (bb) -> true, "Did you really read them carefully? Go back.");
@@ -62,7 +63,7 @@ public class SurveyController {
 			worker.submit(task);
 		}, () -> {
 			eventBus.post(new CloseEvent());
-		}, null);
+		}, blackboard);
 	}
 	
 	@FXML
