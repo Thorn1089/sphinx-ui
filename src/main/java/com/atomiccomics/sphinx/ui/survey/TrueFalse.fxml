@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.atomiccomics.sphinx.ui.survey.TrueFalseController">
+  <fx:define>
+  	<ToggleGroup fx:id="answers" />
+  </fx:define>
+  <children>
+    <Text fx:id="question" strokeType="OUTSIDE" strokeWidth="0.0" text="Sample question text." AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <font>
+        <Font size="16.0" />
+      </font>
+    </Text>
+    <VBox layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.leftAnchor="0.0">
+      <children>
+        <RadioButton fx:id="yes" mnemonicParsing="false" text="True" toggleGroup="$answers">
+          <VBox.margin>
+            <Insets bottom="5.0" top="5.0" fx:id="x1" />
+          </VBox.margin>
+        </RadioButton>
+        <RadioButton fx:id="no" mnemonicParsing="false" text="False" VBox.margin="$x1" />
+      </children>
+    </VBox>
+  </children>
+  <padding>
+    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+  </padding>
+</AnchorPane>
