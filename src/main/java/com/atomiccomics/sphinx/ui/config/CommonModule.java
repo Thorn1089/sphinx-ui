@@ -15,7 +15,7 @@ public class CommonModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
-		bind(EventBus.class).toInstance(new EventBus());
+		bind(EventBus.class).toInstance(new EventBus((exception, context) -> exception.printStackTrace()));
 		bind(ExecutorService.class).toInstance(Executors.newCachedThreadPool());
 	}
 
