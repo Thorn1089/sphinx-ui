@@ -3,6 +3,7 @@ package com.atomiccomics.sphinx.ui.main;
 import java.io.IOException;
 
 import com.atomiccomics.sphinx.ui.config.CommonModule;
+import com.atomiccomics.sphinx.ui.config.PersistenceModule;
 import com.atomiccomics.sphinx.ui.config.UiModule;
 import com.atomiccomics.sphinx.ui.survey.StartSurveyEvent;
 import com.atomiccomics.sphinx.ui.survey.SurveyController;
@@ -28,7 +29,7 @@ public class SphinxApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-		this.injector = Guice.createInjector(new UiModule(), new CommonModule());
+		this.injector = Guice.createInjector(new UiModule(), new CommonModule(), new PersistenceModule());
 		
 		final EventBus eventBus = injector.getInstance(EventBus.class);
 		eventBus.register(this);
