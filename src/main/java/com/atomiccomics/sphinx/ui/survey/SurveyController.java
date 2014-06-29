@@ -18,6 +18,7 @@ import javafx.scene.Node;
 
 import com.atomiccomics.sphinx.ui.main.CloseEvent;
 import com.atomiccomics.survey.common.FillInNumberQuestion;
+import com.atomiccomics.survey.common.FillInTextQuestion;
 import com.atomiccomics.survey.common.Instructions;
 import com.atomiccomics.survey.common.StaticSection;
 import com.atomiccomics.survey.common.TrueFalseQuestion;
@@ -60,7 +61,8 @@ public class SurveyController {
 		final Instructions demoInstructions = new Instructions("I-01", (bb) -> true, "Please read these carefully");
 		final TrueFalseQuestion checkUnderstanding = new TrueFalseQuestion("I-02", (bb) -> true, "Did you really read them carefully?");
 		final FillInNumberQuestion age = new FillInNumberQuestion("D-01", (bb) -> true, "How old are you?");
-		final Section section = new StaticSection((bb) -> true, Arrays.asList(demoInstructions, checkUnderstanding, age));
+		final FillInTextQuestion aboutYou = new FillInTextQuestion("D-02", (bb) -> true, "Tell us about yourself.");
+		final Section section = new StaticSection((bb) -> true, Arrays.asList(demoInstructions, checkUnderstanding, age, aboutYou));
 		driver = new SurveyDriver(section, (question) -> {
 			final LoadQuestionTask task = new LoadQuestionTask(question);
 			task.setOnSucceeded((event) -> {
@@ -125,6 +127,15 @@ public class SurveyController {
 				return (scrollPane) -> {
 					trueFalse.displayQuestion((TrueFalseQuestion)question);
 					forward.disableProperty().bind(Bindings.not(trueFalse.validProperty()));
+					scrollPane.setContent(panel);
+				};
+			} else if(question instanceof FillInTextQuestion) { 
+				final FXMLLoader loader = loaderProvider.get();
+				final Node panel = loader.load(SurveyController.class.getResourceAsStream("FillInText.fxml"));
+				final FillInTextController fillInText = loader.getController();
+				return (scrollPane) -> {
+					fillInText.displayQuestion((FillInTextQuestion)	question);
+					forward.disableProperty().bind(Bindings.not(fillInText.validProperty()));
 					scrollPane.setContent(panel);
 				};
 			} else {

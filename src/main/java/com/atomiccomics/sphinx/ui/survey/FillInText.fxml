@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.atomiccomics.sphinx.ui.survey.FillInTextController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Text fx:id="question" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sample Question Text">
+      <font>
+        <Font size="16.0" />
+      </font>
+    </Text>
+    <TextArea fx:id="answer" layoutX="14.0" layoutY="31.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="141.0" prefWidth="256.0" wrapText="true" />
+  </children>
+</AnchorPane>
