@@ -9,12 +9,12 @@
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.atomiccomics.sphinx.ui.survey.SurveyController">
   <children>
     <Label layoutX="23.0" layoutY="11.0" text="Sphinx Survey" />
-    <Button layoutX="541.0" layoutY="365.0" mnemonicParsing="false" onAction="#next" text="Next">
+    <Button fx:id="forward" layoutX="541.0" layoutY="365.0" mnemonicParsing="false" onAction="#next" text="Next">
       <tooltip>
         <Tooltip text="Move to the next question" />
       </tooltip>
     </Button>
-    <Button layoutX="23.0" layoutY="365.0" mnemonicParsing="false" onAction="#previous" text="Previous">
+    <Button id="previous" fx:id="back" layoutX="23.0" layoutY="365.0" mnemonicParsing="false" onAction="#previous" text="Previous">
       <tooltip>
         <Tooltip text="Return to the previous question" />
       </tooltip>

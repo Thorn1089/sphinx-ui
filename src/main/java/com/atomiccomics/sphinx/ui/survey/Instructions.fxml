@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.atomiccomics.sphinx.ui.survey.InstructionsController">
   <children>
-    <Text fx:id="instructionsText" layoutX="7.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here are some sample instructions.">
+    <Text fx:id="instructionsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Here are some sample instructions." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
       <font>
         <Font size="16.0" />
       </font>
