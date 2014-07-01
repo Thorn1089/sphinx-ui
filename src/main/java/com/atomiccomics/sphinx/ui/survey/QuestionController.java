@@ -1,5 +1,6 @@
 package com.atomiccomics.sphinx.ui.survey;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 
 /**
@@ -17,6 +18,8 @@ public interface QuestionController {
 	 * @return A {@link BooleanBinding} representing whether the current answer
 	 * encapsulated by this controller is valid or not.
 	 */
-	BooleanBinding validProperty();
+	default BooleanBinding validProperty() {
+		return Bindings.createBooleanBinding(() -> true);
+	}
 	
 }
